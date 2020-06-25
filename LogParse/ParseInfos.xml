@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configs>
-	<Structure TableName="tbLog">
-		<Colomn name="source" regname="" caption="Source" gridwidth="" disporder="0"/>
-		<Colomn name="line" regname="" caption="Line" gridwidth="" disporder="1"/>
-		<Colomn name="logdate" regname="date" caption="Date" gridwidth="" disporder="2"/>
-		<Colomn name="logtime" regname="time" caption="Time" gridwidth="" disporder="3"/>
-		<Colomn name="loglevel" regname="level" caption="Level" gridwidth="" disporder="4"/>
-		<Colomn name="ssid" regname="session" caption="SID" gridwidth="" disporder="5"/>
-		<Colomn name="thid" regname="thread" caption="TID" gridwidth="" disporder="6"/>
-		<Colomn name="logger" regname="logger" caption="Logger" gridwidth="" disporder="7"/>		
+	<Structure TableName="tbLog">		
+		<Colomn name="logdate" regname="date" caption="Date" gridwidth="" disporder="0"/>
+		<Colomn name="logtime" regname="time" caption="Time" gridwidth="" disporder="1"/>
+		<Colomn name="loglevel" regname="level" caption="Level" gridwidth="" disporder="2"/>
+		<Colomn name="ssid" regname="session" caption="SID" gridwidth="" disporder="3"/>
+		<Colomn name="thid" regname="thread" caption="TID" gridwidth="" disporder="4"/>
+		<Colomn name="logger" regname="logger" caption="Logger" gridwidth="" disporder="5"/>		
 	</Structure>	
 	<ParseInfos>
 		<ParseInfo Name="Type1" Description="일반로그">
