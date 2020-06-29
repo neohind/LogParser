@@ -3,14 +3,14 @@
     partial class FrmMain
     {
         /// <summary>
-        /// 필수 디자이너 변수입니다.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 사용 중인 모든 리소스를 정리합니다.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,170 +20,72 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form 디자이너에서 생성한 코드
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 디자이너 지원에 필요한 메서드입니다. 
-        /// 이 메서드의 내용을 코드 편집기로 수정하지 마세요.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-        {            
+        {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbLogTypes = new System.Windows.Forms.ComboBox();
-            this.btnAppend = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.workerSearching = new System.ComponentModel.BackgroundWorker();
+            DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
+            this.documentMainGroup = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
+            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
-            this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.dockLoader = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.ctrlLoadAndAppendLogs1 = new LogParse.DockCtrls.CtrlLoadAndAppendLogs();
+            this.dockSearch = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.ctrlSearchResults1 = new LogParse.DockCtrls.CtrlSearchResults();
+            this.dockAllData = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.gridControlAll = new DevExpress.XtraGrid.GridControl();
+            this.gridViewAll = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.documentMainGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
-            this.tabPane1.SuspendLayout();
-            this.tabNavigationPage1.SuspendLayout();
+            this.dockLoader.SuspendLayout();
+            this.dockPanel2_Container.SuspendLayout();
+            this.dockSearch.SuspendLayout();
+            this.dockPanel3_Container.SuspendLayout();
+            this.dockAllData.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlAll)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAll)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // documentMainGroup
             // 
-            this.button1.Location = new System.Drawing.Point(262, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Load Logfile";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnLoad_Click);
+            this.documentMainGroup.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document[] {
+            this.document1});
             // 
-            // splitContainer1
+            // document1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.tabPane1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1037, 504);
-            this.splitContainer1.SplitterDistance = 159;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(14, 73);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(361, 23);
-            this.progressBar1.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Log Type";
-            // 
-            // cmbLogTypes
-            // 
-            this.cmbLogTypes.FormattingEnabled = true;
-            this.cmbLogTypes.Location = new System.Drawing.Point(14, 47);
-            this.cmbLogTypes.Name = "cmbLogTypes";
-            this.cmbLogTypes.Size = new System.Drawing.Size(243, 20);
-            this.cmbLogTypes.TabIndex = 9;
-            // 
-            // btnAppend
-            // 
-            this.btnAppend.Location = new System.Drawing.Point(263, 45);
-            this.btnAppend.Name = "btnAppend";
-            this.btnAppend.Size = new System.Drawing.Size(112, 23);
-            this.btnAppend.TabIndex = 6;
-            this.btnAppend.Text = "Append Logfile";
-            this.btnAppend.UseVisualStyleBackColor = true;
-            this.btnAppend.Click += new System.EventHandler(this.btnAppend_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(164, 16);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(92, 23);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1037, 341);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Consolas", 9F);
-            this.gridView1.Appearance.Row.Options.UseFont = true;
-            this.gridView1.ColumnPanelRowHeight = 0;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridView1.FooterPanelHeight = 0;
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupRowHeight = 0;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Fast;
-            this.gridView1.OptionsView.RowAutoHeight = true;
-            this.gridView1.OptionsView.ShowGroupExpandCollapseButtons = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.RowHeight = 0;
-            this.gridView1.ViewCaptionHeight = 0;
-            this.gridView1.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView1_SelectionChanged);
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Source";
-            this.gridColumn1.FieldName = "source";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Line";
-            this.gridColumn2.FieldName = "line";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // workerSearching
-            // 
-            this.workerSearching.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerSearching_DoWork);
-            this.workerSearching.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerSearching_RunWorkerCompleted);
+            this.document1.Caption = "All Logs";
+            this.document1.ControlName = "dockAllData";
+            this.document1.FloatLocation = new System.Drawing.Point(2876, 184);
+            this.document1.FloatSize = new System.Drawing.Size(200, 200);
+            this.document1.Properties.AllowClose = DevExpress.Utils.DefaultBoolean.False;
+            this.document1.Properties.AllowFloat = DevExpress.Utils.DefaultBoolean.True;
+            this.document1.Properties.AllowFloatOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
             // 
             // dockManager1
             // 
             this.dockManager1.Form = this;
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dockLoader,
+            this.dockSearch,
+            this.dockAllData});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -197,84 +99,224 @@
             "DevExpress.XtraBars.TabFormControl",
             "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl"});
             // 
-            // tabPane1
+            // dockLoader
             // 
-            this.tabPane1.Controls.Add(this.tabNavigationPage1);
-            this.tabPane1.Controls.Add(this.tabNavigationPage2);
-            this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPane1.Location = new System.Drawing.Point(0, 0);
-            this.tabPane1.Name = "tabPane1";
-            this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.tabNavigationPage1,
-            this.tabNavigationPage2});
-            this.tabPane1.RegularSize = new System.Drawing.Size(1037, 159);
-            this.tabPane1.SelectedPage = this.tabNavigationPage2;
-            this.tabPane1.Size = new System.Drawing.Size(1037, 159);
-            this.tabPane1.TabIndex = 2;
-            this.tabPane1.Text = "tabPane1";
+            this.dockLoader.Controls.Add(this.dockPanel2_Container);
+            this.dockLoader.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockLoader.FloatSize = new System.Drawing.Size(230, 505);
+            this.dockLoader.ID = new System.Guid("e6aa4c4e-a8dc-49f7-8dcf-40a8e53b018e");
+            this.dockLoader.Location = new System.Drawing.Point(0, 44);
+            this.dockLoader.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockLoader.Name = "dockLoader";
+            this.dockLoader.Options.ShowCloseButton = false;
+            this.dockLoader.OriginalSize = new System.Drawing.Size(230, 109);
+            this.dockLoader.Size = new System.Drawing.Size(460, 1414);
+            this.dockLoader.Text = "Load and Append Log file";
             // 
-            // tabNavigationPage1
+            // dockPanel2_Container
             // 
-            this.tabNavigationPage1.Caption = "tabNavigationPage1";
-            this.tabNavigationPage1.Controls.Add(this.progressBar1);
-            this.tabNavigationPage1.Controls.Add(this.label1);
-            this.tabNavigationPage1.Controls.Add(this.button1);
-            this.tabNavigationPage1.Controls.Add(this.cmbLogTypes);
-            this.tabNavigationPage1.Controls.Add(this.btnClear);
-            this.tabNavigationPage1.Controls.Add(this.btnAppend);
-            this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(1037, 131);
+            this.dockPanel2_Container.Controls.Add(this.ctrlLoadAndAppendLogs1);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(8, 46);
+            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockPanel2_Container.Name = "dockPanel2_Container";
+            this.dockPanel2_Container.Size = new System.Drawing.Size(439, 1360);
+            this.dockPanel2_Container.TabIndex = 0;
             // 
-            // tabNavigationPage2
+            // ctrlLoadAndAppendLogs1
             // 
-            this.tabNavigationPage2.Caption = "tabNavigationPage2";
-            this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(1037, 131);
+            this.ctrlLoadAndAppendLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlLoadAndAppendLogs1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlLoadAndAppendLogs1.Margin = new System.Windows.Forms.Padding(82, 42, 82, 42);
+            this.ctrlLoadAndAppendLogs1.MinimumSize = new System.Drawing.Size(460, 1000);
+            this.ctrlLoadAndAppendLogs1.Name = "ctrlLoadAndAppendLogs1";
+            this.ctrlLoadAndAppendLogs1.Size = new System.Drawing.Size(460, 1360);
+            this.ctrlLoadAndAppendLogs1.TabIndex = 0;
             // 
-            // FrmMain
+            // dockSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 504);
-            this.Controls.Add(this.splitContainer1);
-            this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FrmMain";
-            this.Text = "Form1";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.dockSearch.Controls.Add(this.dockPanel3_Container);
+            this.dockSearch.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+            this.dockSearch.ID = new System.Guid("57162f99-74b5-4007-b2cb-400391168486");
+            this.dockSearch.Location = new System.Drawing.Point(460, 1058);
+            this.dockSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockSearch.Name = "dockSearch";
+            this.dockSearch.Options.ShowCloseButton = false;
+            this.dockSearch.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dockSearch.Size = new System.Drawing.Size(2068, 400);
+            this.dockSearch.Text = "Search";
+            // 
+            // dockPanel3_Container
+            // 
+            this.dockPanel3_Container.Controls.Add(this.ctrlSearchResults1);
+            this.dockPanel3_Container.Location = new System.Drawing.Point(8, 51);
+            this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockPanel3_Container.Name = "dockPanel3_Container";
+            this.dockPanel3_Container.Size = new System.Drawing.Size(2052, 341);
+            this.dockPanel3_Container.TabIndex = 0;
+            // 
+            // ctrlSearchResults1
+            // 
+            this.ctrlSearchResults1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlSearchResults1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlSearchResults1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.ctrlSearchResults1.Name = "ctrlSearchResults1";
+            this.ctrlSearchResults1.Size = new System.Drawing.Size(2052, 341);
+            this.ctrlSearchResults1.TabIndex = 0;
+            // 
+            // dockAllData
+            // 
+            this.dockAllData.Controls.Add(this.dockPanel1_Container);
+            this.dockAllData.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
+            this.dockAllData.DockedAsTabbedDocument = true;
+            this.dockAllData.FloatLocation = new System.Drawing.Point(2876, 184);
+            this.dockAllData.FloatVertical = true;
+            this.dockAllData.ID = new System.Guid("66aa9621-352a-4e3c-b57b-8ce19cc52e6d");
+            this.dockAllData.Location = new System.Drawing.Point(0, 0);
+            this.dockAllData.Name = "dockAllData";
+            this.dockAllData.Options.ShowCloseButton = false;
+            this.dockAllData.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dockAllData.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+            this.dockAllData.SavedIndex = 2;
+            this.dockAllData.Size = new System.Drawing.Size(2060, 959);
+            this.dockAllData.Text = "All Logs";
+            this.dockAllData.Click += new System.EventHandler(this.dockPanel1_Click);
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.gridControlAll);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(2060, 959);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // gridControlAll
+            // 
+            this.gridControlAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlAll.Location = new System.Drawing.Point(0, 0);
+            this.gridControlAll.MainView = this.gridViewAll;
+            this.gridControlAll.Name = "gridControlAll";
+            this.gridControlAll.Size = new System.Drawing.Size(2060, 959);
+            this.gridControlAll.TabIndex = 0;
+            this.gridControlAll.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewAll});
+            this.gridControlAll.Resize += new System.EventHandler(this.gridControl_Resize);
+            // 
+            // gridViewAll
+            // 
+            this.gridViewAll.Appearance.Row.Font = new System.Drawing.Font("Consolas", 9F);
+            this.gridViewAll.Appearance.Row.Options.UseFont = true;
+            this.gridViewAll.GridControl = this.gridControlAll;
+            this.gridViewAll.Name = "gridViewAll";
+            this.gridViewAll.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridViewAll.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridViewAll.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewAll.OptionsCustomization.AllowGroup = false;
+            this.gridViewAll.OptionsCustomization.AllowRowSizing = true;
+            this.gridViewAll.OptionsLayout.Columns.AddNewColumns = false;
+            this.gridViewAll.OptionsLayout.Columns.RemoveOldColumns = false;
+            this.gridViewAll.OptionsView.ColumnAutoWidth = false;
+            this.gridViewAll.OptionsView.RowAutoHeight = true;
+            this.gridViewAll.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.gridViewAll.OptionsView.ShowGroupPanel = false;
+            this.gridViewAll.OptionsView.ShowIndicator = false;
+            this.gridViewAll.RowHeight = 0;
+            this.gridViewAll.ScrollStyle = DevExpress.XtraGrid.Views.Grid.ScrollStyleFlags.LiveHorzScroll;
+            this.gridViewAll.ViewCaptionHeight = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenu});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(2528, 44);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // MainMenu
+            // 
+            this.MainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(72, 36);
+            this.MainMenu.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(186, 44);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // documentManager1
+            // 
+            this.documentManager1.ContainerControl = this;
+            this.documentManager1.View = this.tabbedView1;
+            this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView1});
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.DocumentGroups.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup[] {
+            this.documentMainGroup});
+            this.tabbedView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
+            this.document1});
+            dockingContainer1.Element = this.documentMainGroup;
+            this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
+            dockingContainer1});
+            // 
+            // FrmMain2
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(2528, 1458);
+            this.Controls.Add(this.dockLoader);
+            this.Controls.Add(this.dockSearch);
+            this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Name = "FrmMain2";
+            this.Text = "FrmMain2";
+            ((System.ComponentModel.ISupportInitialize)(this.documentMainGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
-            this.tabPane1.ResumeLayout(false);
-            this.tabNavigationPage1.ResumeLayout(false);
-            this.tabNavigationPage1.PerformLayout();
+            this.dockLoader.ResumeLayout(false);
+            this.dockPanel2_Container.ResumeLayout(false);
+            this.dockSearch.ResumeLayout(false);
+            this.dockPanel3_Container.ResumeLayout(false);
+            this.dockAllData.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlAll)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAll)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btnAppend;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbLogTypes;
-        private System.ComponentModel.BackgroundWorker workerSearching;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraBars.Navigation.TabPane tabPane1;
-        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
-        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
+        private DevExpress.XtraBars.Docking.DockPanel dockSearch;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel3_Container;
+        private DevExpress.XtraBars.Docking.DockPanel dockLoader;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
+        private DockCtrls.CtrlLoadAndAppendLogs ctrlLoadAndAppendLogs1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private DevExpress.XtraBars.Docking.DockPanel dockAllData;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;        
+        private DevExpress.XtraGrid.GridControl gridControlAll;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewAll;
+        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup documentMainGroup;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document1;
+        private DockCtrls.CtrlSearchResults ctrlSearchResults1;
     }
 }
-

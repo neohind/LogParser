@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,26 @@ namespace LogParse
             set;
         }
 
+        [DefaultValue(true)]
+        public bool IsReadOnly
+        {
+            get;
+            set;
+        }
+
+        [DefaultValue(false)]
+        public bool IsMultiEditor
+        {
+            get;
+            set;
+        }
+
+        [DefaultValue(false)]
+        public bool IsBestFit
+        {
+            get;
+            set;
+        }
 
 
         public bool Load(XmlNode nodeStructInfo)
