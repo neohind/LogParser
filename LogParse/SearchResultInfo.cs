@@ -22,6 +22,16 @@ namespace LogParse
                 DisplayText = string.Format("<{0,-6}> {1}", DataSource["line"], DataSource["content"]);
         }
 
+        public SearchResultInfo(int nDataSourceIndex, string sContent)
+        {
+            this.DataSourceIndex = nDataSourceIndex;
+            this.DataSource = null;
+
+            DisplayText = string.Format("<{0,-6}> {1}", nDataSourceIndex, sContent);
+        }
+
+
+
         public string DisplayText
         {
             get;
