@@ -98,11 +98,7 @@ namespace LogParse
         private void DockPanel_ClosingPanel(object sender, DevExpress.XtraBars.Docking.DockPanelCancelEventArgs e)
         {
             foreach (DevExpress.XtraGrid.GridControl ctrl in m_aryGridCtrls)
-                ctrl.DataSource = null;                
-
-
-
-
+                ctrl.DataSource = null;            
 
             //DevExpress.XtraBars.Docking.ControlContainer container = e.Panel.Container as DevExpress.XtraBars.Docking.ControlContainer;
             GridControl gridControl = e.Panel.Controls[0] as GridControl;
@@ -119,7 +115,6 @@ namespace LogParse
 
             ctrlLoadAndAppendLogs1.RemoveSource(sSourceName);
         }
-
 
         private void ctrlLoadAndAppendLogs1_OnDetachRequest()
         {
@@ -143,7 +138,6 @@ namespace LogParse
             }
         }
 
-
         private void AddPage(string sSourceName)
         {
             DevExpress.XtraBars.Docking.DockPanel dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
@@ -151,12 +145,7 @@ namespace LogParse
             DevExpress.XtraBars.Docking2010.Views.Tabbed.Document page = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             DevExpress.XtraGrid.GridControl gridControl = new DevExpress.XtraGrid.GridControl();
             DevExpress.XtraGrid.Views.Grid.GridView gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-
-            //dockPanel.SuspendLayout();
-            //dockPanel_Container.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(gridControl)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(gridView)).BeginInit();
-
+            
             m_aryDocPanels.Add(dockPanel);
             m_aryDocPages.Add(page);
             m_aryGridCtrls.Add(gridControl);
@@ -234,17 +223,10 @@ namespace LogParse
             page.Properties.AllowFloat = DevExpress.Utils.DefaultBoolean.True;
             page.Properties.AllowFloatOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
 
-            //((System.ComponentModel.ISupportInitialize)(gridControl)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(gridView)).EndInit();
-            //dockPanel.ResumeLayout(false);
-            //dockPanel_Container.ResumeLayout(false);
-
-            
             Application.DoEvents();
             BuildupDataGrid(gridView);
             
         }
-
        
         private void BuildupDataGrid(DevExpress.XtraGrid.Views.Grid.GridView view)
         {
@@ -298,16 +280,6 @@ namespace LogParse
                 else
                     column.Width = (int)(nWidth);
             }
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {           
-        }
-
-        private void dockPanel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void gridControl_Resize(object sender, EventArgs e)

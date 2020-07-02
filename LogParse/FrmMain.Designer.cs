@@ -177,8 +177,7 @@
             this.dockAllData.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
             this.dockAllData.SavedIndex = 2;
             this.dockAllData.Size = new System.Drawing.Size(1028, 306);
-            this.dockAllData.Text = "All Logs";
-            this.dockAllData.Click += new System.EventHandler(this.dockPanel1_Click);
+            this.dockAllData.Text = "All Logs";            
             // 
             // dockPanel1_Container
             // 
