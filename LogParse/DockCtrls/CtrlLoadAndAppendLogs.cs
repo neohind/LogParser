@@ -21,7 +21,7 @@ namespace LogParse.DockCtrls
         public delegate void OnLogRemoveRequestHandler(SourceInfo info);
         public event OnLogRemoveRequestHandler OnLogRemoveRequest;
 
-        public delegate void OnLogRenameRequestHandler(SourceInfo info);
+        public delegate void OnLogRenameRequestHandler(string sOldName, SourceInfo info);
         public event OnLogRenameRequestHandler OnLogRenameRequest;
 
         private DocManager m_docManager = null;        
@@ -154,14 +154,21 @@ namespace LogParse.DockCtrls
             {
                 FrmRenameSourceName dlg = new FrmRenameSourceName();
                 dlg.SetOringalName(info.Name);
-
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    info.Name = dlg.NewName;
-                    listSources.Items.RemoveAt(nIndex);
-                    listSources.Items.Insert(nIndex, info);
+                    if (m_docManager.HasSameName(dlg.Name))
+                    {
+                        MessageBox.Show("New name is conflict!! ");
+                    }
+                    else
+                    {
+                        string sOldName = info.Name;
+                        info.Name = dlg.NewName;
+                        listSources.Items.RemoveAt(nIndex);
+                        listSources.Items.Insert(nIndex, info);
 
-                    OnLogRenameRequest?.Invoke(info);
+                        OnLogRenameRequest?.Invoke(sOldName, info);
+                    }
                 }
             }
         }

@@ -132,8 +132,7 @@
             this.txtSearchWords.Location = new System.Drawing.Point(99, 7);
             this.txtSearchWords.Name = "txtSearchWords";
             this.txtSearchWords.Size = new System.Drawing.Size(371, 20);
-            this.txtSearchWords.TabIndex = 1;
-            this.txtSearchWords.EditValueChanged += new System.EventHandler(this.txtSearchWords_EditValueChanged);
+            this.txtSearchWords.TabIndex = 1;            
             this.txtSearchWords.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchWords_KeyDown);
             // 
             // labelControl1
@@ -169,7 +168,6 @@
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 7;
             this.progressBar1.Visible = false;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // CtrlSearchResults
             // 

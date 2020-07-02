@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configs>
 	<Structure TableName="tbLog">	
-		<Colomn name="logdatee" regname="date" caption="Date" gridwidth="80" disporder="0"/>
+		<Colomn name="logdate" regname="date" caption="Date" gridwidth="80" disporder="0"/>
 		<Colomn name="logtime" regname="time" caption="Time" gridwidth="90" disporder="1"/>
 		<Colomn name="loglevel" regname="level" caption="Level" gridwidth="60" disporder="2"/>
 		<Colomn name="ssid" regname="session" caption="SID" gridwidth="30" disporder="3"/>
@@ -13,9 +13,13 @@
 			<Divider><![CDATA[^(?<y>[0-9]{4})-(?<m>[0-9]{2})-(?<d>[0-9]{2}) (?<h>[0-9]{2}):(?<n>[0-9]{2}):(?<s>[0-9]{2}),(?<ms>[0-9]{3})]]></Divider>
 			<Contents><![CDATA[(?<date>[0-9]{4}\-[0-9]{2}\-[0-9]{2}) (?<time>[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}) (?<level>[A-Z ]{6})\((?<session>[0-9]*)[ ]*\)\[(?<thread>[0-9])*[ ]*\]  (?<logger>.{60})]]></Contents>
 		</ParseInfo>
+    <ParseInfo Name="Type2" Description="일반로그">
+      <Divider><![CDATA[^(?<y>[0-9]{4})-(?<m>[0-9]{2})-(?<d>[0-9]{2}) (?<h>[0-9]{2}):(?<n>[0-9]{2}):(?<s>[0-9]{2}),(?<ms>[0-9]{3})]]></Divider>
+      <Contents><![CDATA[(?<date>[0-9]{4}\-[0-9]{2}\-[0-9]{2}) (?<time>[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}) (?<level>[A-Z ]{6})\((?<session>[0-9]*)[ ]*\)\[(?<thread>[0-9])*[ ]*\]  (?<logger>.{60})]]></Contents>
+    </ParseInfo>
 		<ParseInfo Name="Type2" Description="장비로그">
 			<Divider><![CDATA[^(?<y>[0-9]{4})-(?<m>[0-9]{2})-(?<d>[0-9]{2}) (?<h>[0-9]{2}):(?<n>[0-9]{2}):(?<s>[0-9]{2}),(?<ms>[0-9]{3})]]></Divider>
-			<Contents><![CDATA[(?<datetime>[0-9]{4}\-[0-9]{2}\-[0-9]{2}) (?<time>[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}) (?<level>[A-Z ]{6})\((?<session>[0-9]*)[ ]*\)\[(?<thread>[0-9])*[ ]*\]  (?<logger>.{30})]]></Contents>
+			<Contents><![CDATA[(?<date>[0-9]{4}\-[0-9]{2}\-[0-9]{2}) (?<time>[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}) (?<level>[A-Z ]{6})\((?<session>[0-9]*)[ ]*\)\[(?<thread>[0-9])*[ ]*\]  (?<logger>.{30})]]></Contents>
 		</ParseInfo>
 	</ParseInfos>
 </Configs>

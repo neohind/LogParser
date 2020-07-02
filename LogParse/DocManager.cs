@@ -101,5 +101,27 @@ namespace LogParse
             m_parserEngine.DoParse(m_currentSource, info, DataSource);
         }
 
+        internal bool HasSameName(string name)
+        {
+            SourceInfo foundInfo = LogFileSource.Find(m => string.Equals(name, m.Name));
+            if (foundInfo != null)
+                return true;
+
+            return false;
+        }
+
+        internal void RenameSourceAsync(string sOldName, SourceInfo info)
+        {
+            string sQuery = string.Format("source='{0}'", sOldName);
+            DataRow[] aryRows = DataSource.Select(sQuery);
+            Task.Run(() =>
+            {
+                    //List<DataRow> rows = new List<DataRow>();
+                    //rows.AddRange(aryRows);
+                    foreach (DataRow row in aryRows)
+                    row["source"] = info.Name;
+            }).Wait();
+            DataSource.AcceptChanges();
+        }
     }
 }
