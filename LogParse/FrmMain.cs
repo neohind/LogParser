@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using LogParse.DockCtrls;
 using System;
@@ -41,51 +42,92 @@ namespace LogParse
 
             ctrlSearchResults1.SetupDocManager(m_docManager);
             ctrlSearchResults1.OnSearchRequest += ctrlSearchResults1_OnSearchRequest;
+            ctrlSearchResults1.OnRefocusRowRequest += ctrlSearchResults1_OnRefocusRowRequest;
+
 
             BuildupDataGrid(gridViewAll);
-            BuildupDataGrid(gridViewFiltered);
 
             gridControlAll.DataSource = m_docManager.DataSource;
+
             m_aryGridCtrls.Add(gridControlAll);
         }
 
-        private void ctrlSearchResults1_OnSearchRequest(string [] arySearchWords)
+        private void ctrlSearchResults1_OnRefocusRowRequest(int nDataSourceIndex)
+        {
+            int nRowHandler = gridViewAll.GetRowHandle(nDataSourceIndex);
+            if (nRowHandler != GridControl.InvalidRowHandle)
+            {
+                gridViewAll.FocusedRowHandle = nRowHandler;
+            }
+        }
+
+        private void ctrlSearchResults1_OnSearchRequest(string[] arySearchWords)
         {
             StringBuilder sbFindQuery = new StringBuilder();
             foreach (string sWord in arySearchWords)
                 sbFindQuery.AppendFormat("{0} ", sWord);
 
-            gridViewAll.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
-            gridViewAll.OptionsFind.HighlightFindResults = true;
-            gridViewAll.OptionsFind.FindFilterColumns = "content";
-            
-            ColumnView view = gridViewAll.Columns["content"].View;
-            view.HideFindPanel();
-            view.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;            
-            view.OptionsFind.HighlightFindResults = true;
-            view.ApplyFindFilter(sbFindQuery.ToString());
+            GridColumn column = gridViewAll.Columns["content"];
+            ColumnView view = column.View;
 
-            gridViewFiltered.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
-            gridViewFiltered.OptionsFind.FindFilterColumns = "content";
-
-            ColumnView viewFiltered = gridViewFiltered.Columns["content"].View;
-            viewFiltered.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
-            viewFiltered.ApplyFindFilter(sbFindQuery.ToString());
-            gridViewFiltered.MoveFirst();
-
-            int nHandle = 1;
-            while (nHandle > 0)
+            Invoke(new Action(() =>
             {
-                nHandle = gridViewFiltered.FocusedRowHandle;
+                gridViewAll.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
+                gridViewAll.OptionsFind.HighlightFindResults = true;
+                gridViewAll.OptionsFind.FindFilterColumns = "content";
+                view.HideFindPanel();
+                view.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
+                view.OptionsFind.HighlightFindResults = true;
 
-                DataRow row = gridViewFiltered.GetDataRow(nHandle);
-                if (row != null)
+                view.ApplyFindFilter(sbFindQuery.ToString());
+
+
+
+            }));
+
+            gridViewAll.MoveFirst();
+
+            Task.Run(() =>
+            {
+
+                StringBuilder sbRegex = new StringBuilder();
+                bool bIsFirst = true;
+                sbRegex.Append("(");
+                foreach (string sWord in arySearchWords)
                 {
-                    log.DebugFormat("Handle:{0} - {1}", nHandle, row["content"]);
-                    gridViewFiltered.MoveNext();
-                }
-            }
+                    string sWordReplaced = Regex.Replace(sWord, @"([\?\(\)\[\]\*\$\.\-\!\'\""])", @"\$1");
+                    if (bIsFirst)
+                        bIsFirst = false;
+                    else
+                        sbRegex.Append("|");
 
+                    sbRegex.AppendFormat("{0}", sWordReplaced);
+                }
+                sbRegex.Append(")");
+
+                Regex regex = new Regex(sbRegex.ToString(), RegexOptions.IgnoreCase);
+
+
+                int rowHandle = gridViewAll.FocusedRowHandle;
+                int visibleIndex = gridViewAll.GetVisibleIndex(rowHandle);
+
+                Dictionary<int, string> dicResult = new Dictionary<int, string>();
+                // Select rows that contain 'Mexico' in the Country column.
+                while (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    string sValue = view.GetRowCellValue(rowHandle, column) as string;
+                    if (regex.IsMatch(sValue))
+                    {
+                        int nDataSourceIndex = view.GetDataSourceRowIndex(rowHandle);
+                        if (dicResult.ContainsKey(nDataSourceIndex) == false)
+                            dicResult.Add(nDataSourceIndex, sValue);
+                    }
+                    visibleIndex = gridViewAll.GetNextVisibleRow(visibleIndex);
+                    rowHandle = gridViewAll.GetVisibleRowHandle(visibleIndex);
+                }
+
+                ctrlSearchResults1.SetSearchResults(dicResult);
+            });
         }
 
         private void ctrlLoadAndAppendLogs1_OnLogRemoveRequest(SourceInfo info)
