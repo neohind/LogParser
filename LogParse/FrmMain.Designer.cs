@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             this.documentMainGroup = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
             this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
@@ -48,6 +49,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.gridViewFiltered = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.documentMainGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -62,6 +64,7 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewFiltered)).BeginInit();
             this.SuspendLayout();
             // 
             // documentMainGroup
@@ -105,31 +108,29 @@
             this.dockLoader.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockLoader.FloatSize = new System.Drawing.Size(230, 505);
             this.dockLoader.ID = new System.Guid("e6aa4c4e-a8dc-49f7-8dcf-40a8e53b018e");
-            this.dockLoader.Location = new System.Drawing.Point(0, 44);
-            this.dockLoader.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockLoader.Location = new System.Drawing.Point(0, 24);
             this.dockLoader.Name = "dockLoader";
             this.dockLoader.Options.ShowCloseButton = false;
             this.dockLoader.OriginalSize = new System.Drawing.Size(230, 109);
-            this.dockLoader.Size = new System.Drawing.Size(460, 1414);
+            this.dockLoader.Size = new System.Drawing.Size(230, 535);
             this.dockLoader.Text = "Load and Append Log file";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.ctrlLoadAndAppendLogs1);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(8, 46);
-            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(439, 1360);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(221, 508);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // ctrlLoadAndAppendLogs1
             // 
             this.ctrlLoadAndAppendLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctrlLoadAndAppendLogs1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlLoadAndAppendLogs1.Margin = new System.Windows.Forms.Padding(82, 42, 82, 42);
-            this.ctrlLoadAndAppendLogs1.MinimumSize = new System.Drawing.Size(460, 1000);
+            this.ctrlLoadAndAppendLogs1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
+            this.ctrlLoadAndAppendLogs1.MinimumSize = new System.Drawing.Size(230, 500);
             this.ctrlLoadAndAppendLogs1.Name = "ctrlLoadAndAppendLogs1";
-            this.ctrlLoadAndAppendLogs1.Size = new System.Drawing.Size(460, 1360);
+            this.ctrlLoadAndAppendLogs1.Size = new System.Drawing.Size(230, 508);
             this.ctrlLoadAndAppendLogs1.TabIndex = 0;
             // 
             // dockSearch
@@ -137,30 +138,28 @@
             this.dockSearch.Controls.Add(this.dockPanel3_Container);
             this.dockSearch.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.dockSearch.ID = new System.Guid("57162f99-74b5-4007-b2cb-400391168486");
-            this.dockSearch.Location = new System.Drawing.Point(460, 1058);
-            this.dockSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockSearch.Location = new System.Drawing.Point(230, 359);
             this.dockSearch.Name = "dockSearch";
             this.dockSearch.Options.ShowCloseButton = false;
             this.dockSearch.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockSearch.Size = new System.Drawing.Size(2068, 400);
+            this.dockSearch.Size = new System.Drawing.Size(1034, 200);
             this.dockSearch.Text = "Search";
             // 
             // dockPanel3_Container
             // 
             this.dockPanel3_Container.Controls.Add(this.ctrlSearchResults1);
-            this.dockPanel3_Container.Location = new System.Drawing.Point(8, 51);
-            this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dockPanel3_Container.Location = new System.Drawing.Point(4, 24);
             this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(2052, 341);
+            this.dockPanel3_Container.Size = new System.Drawing.Size(1026, 172);
             this.dockPanel3_Container.TabIndex = 0;
             // 
             // ctrlSearchResults1
             // 
             this.ctrlSearchResults1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctrlSearchResults1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlSearchResults1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.ctrlSearchResults1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrlSearchResults1.Name = "ctrlSearchResults1";
-            this.ctrlSearchResults1.Size = new System.Drawing.Size(2052, 341);
+            this.ctrlSearchResults1.Size = new System.Drawing.Size(1026, 172);
             this.ctrlSearchResults1.TabIndex = 0;
             // 
             // dockAllData
@@ -177,7 +176,7 @@
             this.dockAllData.OriginalSize = new System.Drawing.Size(200, 200);
             this.dockAllData.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
             this.dockAllData.SavedIndex = 2;
-            this.dockAllData.Size = new System.Drawing.Size(2060, 959);
+            this.dockAllData.Size = new System.Drawing.Size(1028, 306);
             this.dockAllData.Text = "All Logs";
             this.dockAllData.Click += new System.EventHandler(this.dockPanel1_Click);
             // 
@@ -186,19 +185,24 @@
             this.dockPanel1_Container.Controls.Add(this.gridControlAll);
             this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(2060, 959);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1028, 306);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // gridControlAll
             // 
             this.gridControlAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.LevelTemplate = this.gridViewFiltered;
+            gridLevelNode1.RelationName = "Level1";
+            this.gridControlAll.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControlAll.Location = new System.Drawing.Point(0, 0);
             this.gridControlAll.MainView = this.gridViewAll;
             this.gridControlAll.Name = "gridControlAll";
-            this.gridControlAll.Size = new System.Drawing.Size(2060, 959);
+            this.gridControlAll.Size = new System.Drawing.Size(1028, 306);
             this.gridControlAll.TabIndex = 0;
             this.gridControlAll.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewAll});
+            this.gridViewAll,
+            this.gridViewFiltered});
             this.gridControlAll.Resize += new System.EventHandler(this.gridControl_Resize);
             // 
             // gridViewAll
@@ -209,6 +213,7 @@
             this.gridViewAll.Name = "gridViewAll";
             this.gridViewAll.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridViewAll.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridViewAll.OptionsBehavior.AllowIncrementalSearch = true;
             this.gridViewAll.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewAll.OptionsCustomization.AllowGroup = false;
             this.gridViewAll.OptionsCustomization.AllowRowSizing = true;
@@ -225,13 +230,13 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2528, 44);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -240,13 +245,13 @@
             this.MainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(72, 36);
+            this.MainMenu.Size = new System.Drawing.Size(37, 22);
             this.MainMenu.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(186, 44);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // documentManager1
@@ -266,17 +271,21 @@
             this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
             dockingContainer1});
             // 
-            // FrmMain2
+            // gridViewFiltered
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.gridViewFiltered.GridControl = this.gridControlAll;
+            this.gridViewFiltered.Name = "gridViewFiltered";
+            // 
+            // FrmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(2528, 1458);
-            this.Controls.Add(this.dockLoader);
+            this.ClientSize = new System.Drawing.Size(1264, 559);
             this.Controls.Add(this.dockSearch);
+            this.Controls.Add(this.dockLoader);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "FrmMain2";
+            this.Name = "FrmMain";
             this.Text = "FrmMain2";
             ((System.ComponentModel.ISupportInitialize)(this.documentMainGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
@@ -293,6 +302,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewFiltered)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +328,6 @@
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup documentMainGroup;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document1;
         private DockCtrls.CtrlSearchResults ctrlSearchResults1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewFiltered;
     }
 }

@@ -45,7 +45,6 @@
             this.splitContainerControl1.Horizontal = false;
             this.splitContainerControl1.IsSplitterFixed = true;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainerControl1.Panel1.Controls.Add(this.txtSearchWords);
@@ -53,16 +52,15 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.listBoxControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1114, 311);
-            this.splitContainerControl1.SplitterPosition = 66;
+            this.splitContainerControl1.Size = new System.Drawing.Size(600, 150);
+            this.splitContainerControl1.SplitterPosition = 32;
             this.splitContainerControl1.TabIndex = 0;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(884, 12);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Location = new System.Drawing.Point(476, 6);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(139, 48);
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -70,42 +68,43 @@
             // 
             // txtSearchWords
             // 
-            this.txtSearchWords.Location = new System.Drawing.Point(184, 14);
-            this.txtSearchWords.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSearchWords.Location = new System.Drawing.Point(99, 7);
             this.txtSearchWords.Name = "txtSearchWords";
-            this.txtSearchWords.Size = new System.Drawing.Size(689, 44);
+            this.txtSearchWords.Size = new System.Drawing.Size(371, 20);
             this.txtSearchWords.TabIndex = 1;
+            this.txtSearchWords.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchWords_KeyDown);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(15, 21);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.labelControl1.Location = new System.Drawing.Point(8, 10);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(148, 29);
+            this.labelControl1.Size = new System.Drawing.Size(76, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Search Words";
             // 
             // listBoxControl1
             // 
+            this.listBoxControl1.Appearance.BorderColor = System.Drawing.Color.Black;
             this.listBoxControl1.Appearance.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxControl1.Appearance.Options.UseBorderColor = true;
             this.listBoxControl1.Appearance.Options.UseFont = true;
             this.listBoxControl1.Appearance.Options.UseTextOptions = true;
             this.listBoxControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.listBoxControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
+            this.listBoxControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.Size = new System.Drawing.Size(1114, 235);
+            this.listBoxControl1.Size = new System.Drawing.Size(600, 113);
             this.listBoxControl1.TabIndex = 0;
             // 
             // CtrlSearchResults
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "CtrlSearchResults";
-            this.Size = new System.Drawing.Size(1114, 311);
+            this.Size = new System.Drawing.Size(600, 150);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchWords.Properties)).EndInit();

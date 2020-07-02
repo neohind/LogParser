@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Diagnostics;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.Utils.Extensions;
 
 namespace LogParse.DockCtrls
 {
@@ -19,6 +21,9 @@ namespace LogParse.DockCtrls
         public delegate void OnLogRemoveRequestHandler(SourceInfo info);
         public event OnLogRemoveRequestHandler OnLogRemoveRequest;
 
+        public delegate void OnLogRenameRequestHandler(SourceInfo info);
+        public event OnLogRenameRequestHandler OnLogRenameRequest;
+
         private DocManager m_docManager = null;        
 
         public CtrlLoadAndAppendLogs()
@@ -27,7 +32,15 @@ namespace LogParse.DockCtrls
 
             if (DesignMode == false)
             {
-                cmbLogTypes.DataSource = ConfigManager.Current.AllParserInfo;                
+                radiosLogType.Properties.Items.Clear();
+                foreach (ParserInfo info in ConfigManager.Current.AllParserInfo)
+                {
+                    RadioGroupItem item = new RadioGroupItem();
+                    item.Description = info.ToString();
+                    item.Value = info;
+                    item.Tag = info;                    
+                    radiosLogType.Properties.Items.Add(item);
+                }
             }
         }
 
@@ -51,7 +64,8 @@ namespace LogParse.DockCtrls
         private string GetLogFilename()
         {
             string sLogFilename = string.Empty;
-            int nIndex = cmbLogTypes.SelectedIndex;
+            
+            int nIndex = radiosLogType.SelectedIndex;
             if (nIndex > -1)
             {
                 OpenFileDialog dlg = new OpenFileDialog();
@@ -92,7 +106,7 @@ namespace LogParse.DockCtrls
                 }
 
                 OnDetachRequest?.Invoke();
-                ParserInfo info = cmbLogTypes.Items[cmbLogTypes.SelectedIndex] as ParserInfo;
+                ParserInfo info = radiosLogType.Properties.Items[radiosLogType.SelectedIndex].Value as ParserInfo;
                 m_docManager.Load(sOldFilename, info);
             }
         }
@@ -125,6 +139,30 @@ namespace LogParse.DockCtrls
             if(info != null)
             {
                 OnLogRemoveRequest?.Invoke(info);                
+            }
+        }
+
+        private void btnRename_Click(object sender, EventArgs e)
+        {
+            int nIndex = listSources.SelectedIndex;
+            if (nIndex < 0)
+                return;
+
+            List<object> aryTemp = new List<object>();
+            SourceInfo info = (SourceInfo)listSources.Items[nIndex];
+            if (info != null)
+            {
+                FrmRenameSourceName dlg = new FrmRenameSourceName();
+                dlg.SetOringalName(info.Name);
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    info.Name = dlg.NewName;
+                    listSources.Items.RemoveAt(nIndex);
+                    listSources.Items.Insert(nIndex, info);
+
+                    OnLogRenameRequest?.Invoke(info);
+                }
             }
         }
     }

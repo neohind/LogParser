@@ -12,10 +12,20 @@ namespace LogParse
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public SearchResultInfo(int nDataSourceIndex, DataRowView row)
+        public SearchResultInfo(int nDataSourceIndex, DataRow row)
         {
             this.DataSourceIndex = nDataSourceIndex;
             this.DataSource = row;
+
+            if (DataSource != null && DataSource.Table.Columns.Contains("content")
+                    && DataSource.Table.Columns.Contains("line"))
+                DisplayText = string.Format("<{0,-6}> {1}", DataSource["line"], DataSource["content"]);
+        }
+
+        public string DisplayText
+        {
+            get;
+            private set;
         }
 
         public string SourceName
@@ -24,7 +34,7 @@ namespace LogParse
             {
                 try
                 {
-                    if (DataSource.Row.Table.Columns.Contains("source"))
+                    if (DataSource.Table.Columns.Contains("source"))
                         return DataSource["source"] as string;
                     return string.Empty;
                 }
@@ -42,10 +52,10 @@ namespace LogParse
             {
                 try
                 {
-                    if (DataSource.Row.Table.Columns.Contains("line"))
+                    if (DataSource.Table.Columns.Contains("line"))
                         return DataSource["line"] as string;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     log.Error(ex);
                 }
@@ -60,7 +70,7 @@ namespace LogParse
             set;
         }
 
-        public DataRowView DataSource
+        public DataRow DataSource
         {
             get;
             set;
@@ -68,16 +78,8 @@ namespace LogParse
 
         public override string ToString()
         {
-            try
-            {
-                if (DataSource != null && DataSource.DataView.Table.Columns.Contains("content"))
-                    return DataSource["content"].ToString();
-            }
-            catch(Exception ex)
-            {
-                log.Error(ex);
-            }
-            return string.Empty;
+            return DisplayText;
+
         }
     }
 }

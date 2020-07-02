@@ -137,6 +137,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRenameSourceName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRenameSourceName.Designer.cs">
+      <DependentUpon>FrmRenameSourceName.cs</DependentUpon>
+    </Compile>
     <Compile Include="ParserEngine.cs" />
     <Compile Include="ParserInfo.cs" />
     <Compile Include="Program.cs" />
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRenameSourceName.resx">
+      <DependentUpon>FrmRenameSourceName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

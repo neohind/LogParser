@@ -1,10 +1,12 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Base;
 using LogParse.DockCtrls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,55 +30,62 @@ namespace LogParse
         {
             InitializeComponent();
             m_docManager = new DocManager();
-            m_docManager.OnCompleted += docManager_OnCompleted;            
+            m_docManager.OnCompleted += docManager_OnCompleted;
+            
+            gridViewAll.OptionsFind.HighlightFindResults = true;
+            gridViewAll.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
 
             ctrlLoadAndAppendLogs1.SetupDocManager(m_docManager);
             ctrlLoadAndAppendLogs1.OnDetachRequest += ctrlLoadAndAppendLogs1_OnDetachRequest;
             ctrlLoadAndAppendLogs1.OnLogRemoveRequest += ctrlLoadAndAppendLogs1_OnLogRemoveRequest;
 
+            ctrlSearchResults1.SetupDocManager(m_docManager);
             ctrlSearchResults1.OnSearchRequest += ctrlSearchResults1_OnSearchRequest;
 
             BuildupDataGrid(gridViewAll);
+            BuildupDataGrid(gridViewFiltered);
+
             gridControlAll.DataSource = m_docManager.DataSource;
             m_aryGridCtrls.Add(gridControlAll);
         }
 
-        private void ctrlSearchResults1_OnSearchRequest(string sSearchWords)
-        {            
-            string [] aryTokens = sSearchWords.Split(" ".ToCharArray(), StringSplitOptions.None);
-            StringBuilder sbRegex = new StringBuilder();
-            sbRegex.Append("(");
-            bool bIsFirst = true;
-            foreach(string sToken in aryTokens)
+        private void ctrlSearchResults1_OnSearchRequest(string [] arySearchWords)
+        {
+            StringBuilder sbFindQuery = new StringBuilder();
+            foreach (string sWord in arySearchWords)
+                sbFindQuery.AppendFormat("{0} ", sWord);
+
+            gridViewAll.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
+            gridViewAll.OptionsFind.HighlightFindResults = true;
+            gridViewAll.OptionsFind.FindFilterColumns = "content";
+            
+            ColumnView view = gridViewAll.Columns["content"].View;
+            view.HideFindPanel();
+            view.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;            
+            view.OptionsFind.HighlightFindResults = true;
+            view.ApplyFindFilter(sbFindQuery.ToString());
+
+            gridViewFiltered.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
+            gridViewFiltered.OptionsFind.FindFilterColumns = "content";
+
+            ColumnView viewFiltered = gridViewFiltered.Columns["content"].View;
+            viewFiltered.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
+            viewFiltered.ApplyFindFilter(sbFindQuery.ToString());
+            gridViewFiltered.MoveFirst();
+
+            int nHandle = 1;
+            while (nHandle > 0)
             {
-                if (bIsFirst)
-                    bIsFirst = false;
-                else
-                    sbRegex.Append("|");
+                nHandle = gridViewFiltered.FocusedRowHandle;
 
-                sbRegex.Append(sToken);
-            }
-            sbRegex.Append(")");
-
-            Regex regex = new Regex(sbRegex.ToString());
-
-
-            gridViewAll.MoveFirst();
-            int nHandle = gridViewAll.FocusedRowHandle;            
-            int nVisibleIndex = gridViewAll.GetVisibleIndex(nHandle);
-            DataRowView row = gridViewAll.GetRow(nHandle) as DataRowView;
-            while(row != null)
-            {
-                string sContent = row["content"] as string;
-                if(regex.IsMatch(sContent))
+                DataRow row = gridViewFiltered.GetDataRow(nHandle);
+                if (row != null)
                 {
-                    int nDataSourceIndex = gridViewAll.GetDataSourceRowIndex(nHandle);
-                    ctrlSearchResults1.AddSearchResult(nDataSourceIndex, row);
+                    log.DebugFormat("Handle:{0} - {1}", nHandle, row["content"]);
+                    gridViewFiltered.MoveNext();
                 }
-                nVisibleIndex = gridViewAll.GetNextVisibleRow(nVisibleIndex);
-                nHandle = gridViewAll.GetVisibleRowHandle(nVisibleIndex);
-                row = gridViewAll.GetRow(nHandle) as DataRowView;
             }
+
         }
 
         private void ctrlLoadAndAppendLogs1_OnLogRemoveRequest(SourceInfo info)
